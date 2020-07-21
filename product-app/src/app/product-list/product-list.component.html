@@ -1,1 +1,60 @@
-<p>product-list works!</p>
+<div class='card'>
+	<div class='card-header listofProduct'>
+		List of Product Page
+	</div>
+	<div class='card-body'>
+		<div class='row'>
+			<div class='col-md-2'>Filter by:</div>
+			<div class='col-md-4'>
+				<select>
+					<option>Choosing</option>
+					<option>Jotaro!!</option>
+					<option>Dio!!</option>
+				</select>
+			</div>
+		</div>
+		<div class='row'>
+			<div class='col-md-6'>
+				Filtered by ...
+			</div>
+		</div>
+		<div class='table-responsive'>
+			<table class='table'>
+				<thead>
+					<tr>
+						<th>
+							<button class='btn btn-primary'>
+								Product Image
+							</button>
+						</th>
+						<th>Product Code</th>
+						<th>Product Name</th>
+						<th>Price</th>
+						<th>Available</th>
+						<th>Rating</th>
+					</tr>
+				</thead>
+				<tbody *ngIf="productList.length > 0">
+					<tr *ngFor="let product of productList">
+						<th><a href="">{{ product.imgUrl }}</a></th>
+						<th>{{ product.code }}</th>
+						<th>{{ product.name }}</th>
+						<th>{{ product.price.toFixed(2) }}</th> <!-- 2 decimal point -->
+						<th *ngIf="product.available">Yes</th> <!-- product available -->
+						<th *ngIf="!product.available">No</th> <!-- product unavailable -->
+						<th>{{ product.rating }}</th>
+					</tr>
+				</tbody>
+				<tbody *ngIf="productList.length == 0">
+					<tr>
+						<th></th>
+						<th></th>
+						<th style="color: red;">Product data is empty.</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
