@@ -14,10 +14,17 @@
 			</div>
 		</div>
 		<div class='row'>
-			<div class='col-md-6'>
-				Filtered by ...
+			<div class='col-md-2'>Filtered by :</div>
+			<div class="col-md-4">
+				<input type="text" [(ngModel)]="inputSearch">
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-6">
+				Filtered by {{ inputSearch }}
+			</div>
+		</div>
+
 		<div class='table-responsive'>
 			<table class='table'>
 				<thead>
@@ -35,7 +42,7 @@
 					</tr>
 				</thead>
 				<tbody *ngIf="productList.length > 0">
-					<tr *ngFor="let product of productList">
+					<tr *ngFor="let product of productList | filterbyName: inputSearch">
 						<th><a href="">{{ product.imgUrl }}</a></th>
 						<th>{{ product.code }}</th>
 						<th>{{ product.name | uppercase | productName }}</th>

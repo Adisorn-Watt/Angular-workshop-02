@@ -10,6 +10,7 @@ import { from } from 'rxjs';
 export class ProductListComponent implements OnInit {
 
   productList: Product[] = [];
+  inputSearch: string;
 
   constructor() { }
 
