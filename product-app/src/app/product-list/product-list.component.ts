@@ -1,5 +1,6 @@
 import { Product } from './../models/product'
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../service/product.service'
 import { from } from 'rxjs';
 
 @Component({
@@ -12,13 +13,26 @@ export class ProductListComponent implements OnInit {
   productList: Product[] = [];
   inputSearch: string = "";
 
-  constructor() { }
+  constructor(public service: ProductService) { }
 
   ngOnInit(): void {
-    const p1 = new Product('y8.com', '01', 'Name 001 a', 11200.00, false, 4.2);
+    this.getAll();
+
+    //this.productList = this.service.getAllProduct();
+
+    /*const p1 = new Product('y8.com', '01', 'Name 001 a', 11200.00, false, 4.2);
     const p2 = new Product('y9.com', '02', 'Name 002 b', 1150.5045, true, 3.2);
     const p3 = new Product('y10.com', '03', 'Name 003 a', 144.42, false, 4.8);
-    this.productList.push(p1, p2, p3);
+    this.productList.push(p1, p2, p3);*/
+    // actually They shouldn't be here
+    // should use service
+    // เรียก service --> API --> แสดงผล
+  }
+
+  getAll(): void {
+    this.service.getAllProduct().subscribe((productList) => {
+      return (this.productList = productList);
+    });
   }
 
 }

@@ -1,10 +1,10 @@
 export class Product {
 	constructor(
-		public imgUrl: string,
+		public imageUrl: string,
 		public code: string,
 		public name: string,
 		public price: number,
 		public available: boolean,
 		public rating: number,
-	) {}
+	) { }
 }
