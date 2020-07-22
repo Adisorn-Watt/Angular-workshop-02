@@ -49,7 +49,10 @@
 						<th>{{ product.price | number: "1.2" }}</th> <!-- 2 decimal point -->
 						<th *ngIf="product.available">Yes</th> <!-- product available -->
 						<th *ngIf="!product.available">No</th> <!-- product unavailable -->
-						<th>{{ product.rating }}</th>
+						<th>
+							<app-rating [rating]="product.rating" (ratingClicked)="onRatingClicked($event)">
+							</app-rating>
+						</th>
 					</tr>
 				</tbody>
 				<tbody *ngIf="productList.length == 0">

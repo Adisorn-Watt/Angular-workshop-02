@@ -10,6 +10,7 @@ import { ProductNamePipe } from './product-name.pipe';
 import { FormsModule } from '@angular/forms'
 import { from } from 'rxjs';
 import { FilterbyNamePipe } from './filterby-name.pipe';
+import { RatingComponent } from './rating/rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FilterbyNamePipe } from './filterby-name.pipe';
     ProductListComponent,
     LoginComponent,
     ProductNamePipe,
-    FilterbyNamePipe
+    FilterbyNamePipe,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
