@@ -38,8 +38,8 @@
 					<tr *ngFor="let product of productList">
 						<th><a href="">{{ product.imgUrl }}</a></th>
 						<th>{{ product.code }}</th>
-						<th>{{ product.name }}</th>
-						<th>{{ product.price.toFixed(2) }}</th> <!-- 2 decimal point -->
+						<th>{{ product.name | uppercase | productName }}</th>
+						<th>{{ product.price | number: "1.2" }}</th> <!-- 2 decimal point -->
 						<th *ngIf="product.available">Yes</th> <!-- product available -->
 						<th *ngIf="!product.available">No</th> <!-- product unavailable -->
 						<th>{{ product.rating }}</th>

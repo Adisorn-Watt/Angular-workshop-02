@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { LoginComponent } from './login/login.component';
+import { ProductNamePipe } from './product-name.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    LoginComponent
+    LoginComponent,
+    ProductNamePipe
   ],
   imports: [
     BrowserModule,
