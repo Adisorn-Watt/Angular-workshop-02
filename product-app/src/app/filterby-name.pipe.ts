@@ -6,7 +6,9 @@ import { Product } from './models/product';
 })
 export class FilterbyNamePipe implements PipeTransform {
 
+
   transform(productList: Product[], name: string): Product[] {
+    console.log(">>>>>>>>>" + name)
     return productList.filter((p) => p.name.indexOf(name) != -1);
   }
 
