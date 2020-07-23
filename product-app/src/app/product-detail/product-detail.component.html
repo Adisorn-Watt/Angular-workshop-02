@@ -1,0 +1,12 @@
+<p>product-detail works!</p>
+
+<h2>Product Details {{ product.name | uppercase | productName }}</h2>
+<br />
+<p>Product Image: {{ product.imageUrl }}</p>
+<p>Product Code: {{ product.code }}</p>
+<p>Product Price: {{ product.price | number:'1.2' }}</p>
+<p *ngIf="product.available">Product Available: Yes</p>
+<p *ngIf="!product.available">Product Available: No</p>
+<p>Product Rating
+  <app-rating [rating]="product.rating" (ratingClicked)="onRatingClicked($event)"></app-rating>
+</p>

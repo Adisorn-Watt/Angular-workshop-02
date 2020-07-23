@@ -42,7 +42,8 @@
 					</tr>
 				</thead>
 				<tbody *ngIf="productList.length > 0">
-					<tr *ngFor="let product of productList | filterbyName: inputSearch">
+					<tr *ngFor="let product of productList | filterbyName: inputSearch" (click)="open(product)"
+						[routerLink]="['/product',product.code]">
 						<th><a href="">{{ product.imageUrl }}</a></th>
 						<th>{{ product.code }}</th>
 						<th>{{ product.name | uppercase | productName }}</th>
