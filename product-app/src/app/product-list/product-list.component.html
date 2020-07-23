@@ -14,10 +14,17 @@
 			</div>
 		</div>
 		<div class='row'>
-			<div class='col-md-6'>
-				Filtered by ...
+			<div class='col-md-2'>Filtered by :</div>
+			<div class="col-md-4">
+				<input type="text" [(ngModel)]="inputSearch">
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-6">
+				Filtered by {{ inputSearch }}
+			</div>
+		</div>
+
 		<div class='table-responsive'>
 			<table class='table'>
 				<thead>
@@ -35,14 +42,18 @@
 					</tr>
 				</thead>
 				<tbody *ngIf="productList.length > 0">
-					<tr *ngFor="let product of productList">
-						<th><a href="">{{ product.imgUrl }}</a></th>
+					<tr *ngFor="let product of productList | filterbyName: inputSearch" (click)="open(product)"
+						[routerLink]="['/product',product.code]">
+						<th><a href="">{{ product.imageUrl }}</a></th>
 						<th>{{ product.code }}</th>
-						<th>{{ product.name }}</th>
-						<th>{{ product.price.toFixed(2) }}</th> <!-- 2 decimal point -->
+						<th>{{ product.name | uppercase | productName }}</th>
+						<th>{{ product.price | number: "1.2" }}</th> <!-- 2 decimal point -->
 						<th *ngIf="product.available">Yes</th> <!-- product available -->
 						<th *ngIf="!product.available">No</th> <!-- product unavailable -->
-						<th>{{ product.rating }}</th>
+						<th>
+							<app-rating [rating]="product.rating" (ratingClicked)="onRatingClicked($event)">
+							</app-rating>
+						</th>
 					</tr>
 				</tbody>
 				<tbody *ngIf="productList.length == 0">
