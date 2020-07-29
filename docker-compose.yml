@@ -2,6 +2,7 @@ version: "3.8"
 services:
   web:
     build: .
-    image: adisorn/productapp:1.0.0
+    image: adisornwatt/product-app:1.0.0
+    container_name: product-app-adisornwatt
     ports:
       - "9999:80"
